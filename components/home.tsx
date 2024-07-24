@@ -22,67 +22,116 @@ To read more about using these font, please visit the Next.js documentation:
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from 'next/image';
+import { MenuIcon } from '@heroicons/react/outline';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import {SpinningBorder} from "./ui/SpinningBorder";
+import { SpinningBorder } from "./ui/SpinningBorder";
+
+import { projects } from "@/constants/Information";
 
 export function Home() {
   const [theme, setTheme] = useState("light")
+  const [dropdownOpen, setDropdownOpen] = useState(false)
   useEffect(() => {
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
     setTheme(systemTheme)
   }, [])
   return (
-    <div className={`p-5 min-h-screen bg-background text-foreground transition-colors ${theme === "dark" ? "dark" : ""}`}>
+    <div className={`p-5 min-h-screen bg-background text-foreground transition-colors ${theme === "dark" ? "dark" : ""}`} onClick={() => {
+      if(dropdownOpen) setDropdownOpen(false)
+    }}>
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="#" className="flex items-center gap-2" prefetch={false}>
-            <Avatar className="h-8 w-8">
-              <AvatarImage src="/profile.jpg" />
+            <Avatar className="h-8 w-8 border-golden-light">
               <AvatarFallback>BP</AvatarFallback>
             </Avatar>
-            <span className="font-medium">Basavaraj Patil</span>
+            <span className="font-medium underline underline-offset-4">Basavaraj Patil</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="#about" className="text-sm font-medium hover:underline" prefetch={false}>
-              About
-            </Link>
-            <Link href="#education" className="text-sm font-medium hover:underline" prefetch={false}>
-              Education
-            </Link>
-            <Link href="#skills" className="text-sm font-medium hover:underline" prefetch={false}>
-              Skills
-            </Link>
-            <Link href="#experience" className="text-sm font-medium hover:underline" prefetch={false}>
-              Experience
-            </Link>
-            <Link href="#projects" className="text-sm font-medium hover:underline" prefetch={false}>
-              Projects
-            </Link>
-            <Link href="#contact" className="text-sm font-medium hover:underline" prefetch={false}>
-              Contact
-            </Link>
-            <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+            <div className="hidden sm:flex items-center gap-4">
+              <Link href="#about" className="text-sm font-medium hover:underline" prefetch={false}>
+                About
+              </Link>
+              <Link href="#education" className="text-sm font-medium hover:underline" prefetch={false}>
+                Education
+              </Link>
+              <Link href="#skills" className="text-sm font-medium hover:underline" prefetch={false}>
+                Skills
+              </Link>
+              <Link href="#experience" className="text-sm font-medium hover:underline" prefetch={false}>
+                Experience
+              </Link>
+              <Link href="#projects" className="text-sm font-medium hover:underline" prefetch={false}>
+                Projects
+              </Link>
+              <Link href="#contact" className="text-sm font-medium hover:underline" prefetch={false}>
+                Contact
+              </Link>
+            </div>
+            <Button className="rounded-full" variant="ghost" size="icon" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
               {theme === "light" ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
               <span className="sr-only">Toggle theme</span>
             </Button>
+            <div className="relative">
+              <Button variant="ghost" size="icon" className="sm:hidden rounded-full" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                <MenuIcon className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+              {dropdownOpen && (
+                <div className={`absolute right-0 mt-2 w-48 bg-background border ${theme === "dark" ? "border-gray-700" : "border-gray-200"} rounded shadow-lg sm:hidden transition-transform transform ${dropdownOpen ? 'scale-100' : 'scale-95'} ${dropdownOpen ? 'opacity-100' : 'opacity-0'} ${dropdownOpen ? 'translate-y-0' : '-translate-y-2'} transition duration-500`}>
+                  <Link href="#about" className={`block px-4 py-2 text-sm cursor-pointer ${theme === "dark" ? "text-foreground hover:bg-gray-800" : "text-gray-700 hover:bg-gray-100"}`} prefetch={false} onClick={() => setDropdownOpen(false)}>
+                    About
+                  </Link>
+                  <Link href="#education" className={`block px-4 py-2 text-sm cursor-pointer ${theme === "dark" ? "text-foreground hover:bg-gray-800" : "text-gray-700 hover:bg-gray-100"}`} prefetch={false} onClick={() => setDropdownOpen(false)}>
+                    Education
+                  </Link>
+                  <Link href="#skills" className={`block px-4 py-2 text-sm cursor-pointer ${theme === "dark" ? "text-foreground hover:bg-gray-800" : "text-gray-700 hover:bg-gray-100"}`} prefetch={false} onClick={() => setDropdownOpen(false)}>
+                    Skills
+                  </Link>
+                  <Link href="#experience" className={`block px-4 py-2 text-sm cursor-pointer ${theme === "dark" ? "text-foreground hover:bg-gray-800" : "text-gray-700 hover:bg-gray-100"}`} prefetch={false} onClick={() => setDropdownOpen(false)}>
+                    Experience
+                  </Link>
+                  <Link href="#projects" className={`block px-4 py-2 text-sm cursor-pointer ${theme === "dark" ? "text-foreground hover:bg-gray-800" : "text-gray-700 hover:bg-gray-100"}`} prefetch={false} onClick={() => setDropdownOpen(false)}>
+                    Projects
+                  </Link>
+                  <Link href="#contact" className={`block px-4 py-2 text-sm cursor-pointer ${theme === "dark" ? "text-foreground hover:bg-gray-800" : "text-gray-700 hover:bg-gray-100"}`} prefetch={false} onClick={() => setDropdownOpen(false)}>
+                    Contact
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </header>
       <main className="container mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <section id="about" className="mb-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="flex items-center justify-center">
+            <div className="flex flex-col items-center justify-center">
               <SpinningBorder>
-              <Avatar className="h-80 w-80">
-                <AvatarImage src="/profile.jpg" alt="Profile Image" />
-                <AvatarFallback>BP</AvatarFallback>
-              </Avatar>
+                <Avatar className="h-80 w-80">
+                  <AvatarImage src="/profile.jpg" alt="Profile Image" />
+                  <AvatarFallback>BP</AvatarFallback>
+                </Avatar>
               </SpinningBorder>
+              <div className="mt-6 flex space-x-8">
+                <a href="https://linkedin.com/in/patilbasavaraj" target="_blank" rel="noopener noreferrer" className={`hover:text-blue-900 p-2 border-2 rounded-full ${theme === "dark" ? "text-blue-500 border-white" : "text-blue-700 border-black"}`}>
+                  <LinkedInIcon className="h-10 w-10" />
+                  <span className="sr-only">LinkedIn</span>
+                </a>
+                <a href="https://github.com/basupatil1213" target="_blank" rel="noopener noreferrer" className={`p-2 border-2 rounded-full ${theme === "dark" ? "text-gray-400 hover:text-white border-white" : "text-gray-800 hover:text-red-900 border-black"}`}>
+                  <GitHubIcon className="h-10 w-10" />
+                  <span className="sr-only">GitHub</span>
+                </a>
+                <a href="https://leetcode.com/u/basavaraj_patil/" target="_blank" rel="noopener noreferrer" className={`hover:text-orange-500 p-2 border-2 rounded-full ${theme === "dark" ? "text-orange-300 border-white" : "text-orange-500 border-black"}`}>
+                  <LeetcodeIcon className="h-10 w-10" />
+                  <span className="sr-only">Leetcode</span>
+                </a>
+              </div>
             </div>
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">About Me</h2>
@@ -116,71 +165,71 @@ export function Home() {
         <section id="skills" className="mb-12">
           <h2 className="mb-4 text-2xl font-bold">Skills</h2>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <JavaIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Java</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <PythonIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Python</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <HashIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">HTML</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <CodepenIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">CSS</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <CodepenIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">JavaScript</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <TypeScriptIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">TypeScript</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <CodepenIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">React</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <NextJSIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Next.js</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <NetworkIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Node.js</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <ExpressJSIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Express.js</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <FigmaIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Figma</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <GitGraphIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Git</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <GithubIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Github</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <AWSIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">AWS</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <GCPIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">GCP</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <TerraformIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Terraform</p>
             </div>
-            <div className="rounded-md bg-muted p-4 text-center">
+            <div className="rounded bg-muted p-4 text-center">
               <PackerIcon className="mx-auto h-8 w-8" />
               <p className="mt-2 text-sm font-medium">Packer</p>
             </div>
@@ -211,7 +260,41 @@ export function Home() {
         <section id="projects" className="mb-12">
           <h2 className="mb-4 text-2xl font-bold">Projects</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            <Card className="h-full flex flex-col justify-around">
+            {projects.map((project, idx) => {
+              return (
+                <Card className="h-[600px] flex flex-col justify-around gap-2 rounded" key={idx}>
+              <div className="relative">
+                <Image
+                  src="/profile.jpg"
+                  alt="Project 1"
+                  width={600}
+                  height={200}
+                  className="rounded-t-lg object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="h-1/4 flex-1 overflow-scroll">
+                <p>{project.content}</p>
+              </CardContent>
+              <CardFooter className="flex items-center justify-between">
+                <Link target="_blank" href={project.github_link} className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded" prefetch={false}>
+                  GitHub
+                </Link>
+                <Link
+                  href={project.demo_link}
+                  className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded"
+                  prefetch={false}
+                >
+                  Demo
+                </Link>
+              </CardFooter>
+            </Card>
+              )
+            })}
+            {/* <Card className="h-full flex flex-col justify-around rounded">
               <div className="relative">
                 <Image
                   src="/profile.jpg"
@@ -229,19 +312,19 @@ export function Home() {
                 <p>Lorem ipsum</p>
               </CardContent>
               <CardFooter className="flex items-center justify-between">
-                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded" prefetch={false}>
                   GitHub
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded"
                   prefetch={false}
                 >
                   Demo
                 </Link>
               </CardFooter>
             </Card>
-            <Card className="h-full flex flex-col justify-around">
+            <Card className="h-full flex flex-col justify-around rounded">
               <div className="relative">
                 <Image
                   src="/profile.jpg"
@@ -264,19 +347,19 @@ export function Home() {
                 </p>
               </CardContent>
               <CardFooter className="flex items-center justify-between">
-                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded" prefetch={false}>
                   GitHub
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded"
                   prefetch={false}
                 >
                   Demo
                 </Link>
               </CardFooter>
             </Card>
-            <Card className="h-full flex flex-col justify-around">
+            <Card className="h-full flex flex-col justify-around rounded">
               <div className="relative">
                 <Image
                   src="/profile.jpg"
@@ -298,19 +381,19 @@ export function Home() {
                 </p>
               </CardContent>
               <CardFooter className="flex items-center justify-between">
-                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded" prefetch={false}>
                   GitHub
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded"
                   prefetch={false}
                 >
                   Demo
                 </Link>
               </CardFooter>
             </Card>
-            <Card className="h-full flex flex-col justify-around">
+            <Card className="h-full flex flex-col justify-around rounded">
               <div className="relative">
                 <Image
                   src="/profile.jpg"
@@ -332,24 +415,24 @@ export function Home() {
                 </p>
               </CardContent>
               <CardFooter className="flex items-center justify-between">
-                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded" prefetch={false}>
                   GitHub
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded"
                   prefetch={false}
                 >
                   Demo
                 </Link>
               </CardFooter>
-            </Card>
+            </Card> */}
           </div>
         </section>
 
         <section id="contact" className="mb-12">
           <h2 className="mb-4 text-2xl font-bold">Contact Me</h2>
-          <form className={`space-y-4 border-2 p-8 rounded-sm ${theme == "dark" ? 'border-white' : 'border-black'}`}>
+          <form className={`space-y-4 border-2 p-8 ${theme == "dark" ? 'border-white' : 'border-black'} rounded`}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <Label htmlFor="name">Name</Label>
@@ -364,7 +447,7 @@ export function Home() {
               <Label htmlFor="message">Message</Label>
               <Textarea id="message" rows={5} required />
             </div>
-            <Button type="submit" className="w-full sm:w-auto">
+            <Button type="submit" className="w-full sm:w-auto rounded">
               Submit
             </Button>
           </form>
@@ -771,4 +854,74 @@ function XIcon(props: any) {
       <path d="m6 6 12 12" />
     </svg>
   )
+}
+
+
+// TwitterIcon
+function TwitterIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.949.555-2.005.959-3.127 1.184-.897-.959-2.178-1.559-3.594-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124-4.087-.205-7.713-2.165-10.141-5.144-.422.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.634.961-.695 1.8-1.562 2.46-2.549z" />
+    </svg>
+  );
+}
+
+// linkedIn Icon
+
+function LinkedInIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z" />
+    </svg>
+  );
+}
+
+
+
+// GitHubIcon 
+
+function GitHubIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.005-.404 1.02.005 2.048.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.803 5.62-5.475 5.92.43.37.823 1.102.823 2.222 0 1.606-.014 2.896-.014 3.286 0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+    </svg>
+  );
+}
+
+//LeetcodeIcon
+
+function LeetcodeIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path fill="#B3B1B0" d="M22 14.355c0-.742-.564-1.346-1.26-1.346H10.676c-.696 0-1.26.604-1.26 1.346s.563 1.346 1.26 1.346H20.74c.696.001 1.26-.603 1.26-1.346z"></path><path fill="#E7A41F" d="m3.482 18.187 4.313 4.361c.973.979 2.318 1.452 3.803 1.452 1.485 0 2.83-.512 3.805-1.494l2.588-2.637c.51-.514.492-1.365-.039-1.9-.531-.535-1.375-.553-1.884-.039l-2.676 2.607c-.462.467-1.102.662-1.809.662s-1.346-.195-1.81-.662l-4.298-4.363c-.463-.467-.696-1.15-.696-1.863 0-.713.233-1.357.696-1.824l4.285-4.38c.463-.467 1.116-.645 1.822-.645s1.346.195 1.809.662l2.676 2.606c.51.515 1.354.497 1.885-.038.531-.536.549-1.387.039-1.901l-2.588-2.636a4.994 4.994 0 0 0-2.392-1.33l-.034-.007 2.447-2.503c.512-.514.494-1.366-.037-1.901-.531-.535-1.376-.552-1.887-.038l-10.018 10.1C2.509 11.458 2 12.813 2 14.311c0 1.498.509 2.896 1.482 3.876z"></path><path fill="#070706" d="M8.115 22.814a2.109 2.109 0 0 1-.474-.361c-1.327-1.333-2.66-2.66-3.984-3.997-1.989-2.008-2.302-4.937-.786-7.32a6 6 0 0 1 .839-1.004L13.333.489c.625-.626 1.498-.652 2.079-.067.56.563.527 1.455-.078 2.066-.769.776-1.539 1.55-2.309 2.325-.041.122-.14.2-.225.287-.863.876-1.75 1.729-2.601 2.618-.111.116-.262.186-.372.305-1.423 1.423-2.863 2.83-4.266 4.272-1.135 1.167-1.097 2.938.068 4.127 1.308 1.336 2.639 2.65 3.961 3.974.067.067.136.132.204.198.468.303.474 1.25.183 1.671-.321.465-.74.75-1.333.728-.199-.006-.363-.086-.529-.179z"></path>
+    </svg>
+  );
 }
