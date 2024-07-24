@@ -243,7 +243,7 @@ export function Home() {
               <p className="text-muted-foreground">Koch Business Solutions India</p>
               <p className="text-muted-foreground">August 2021 - August 2023</p>
               <p className="text-muted-foreground">
-              As a Salesforce Full Stack Developer, I developed and optimized Salesforce applications using LWC, Apex, REST APIs, and RESTAPIS. I managed front-end development with HTML, CSS, JavaScript, and Salesforce Flows while handling back-end processes with Apex, Triggers, and pubsub. I implemented and maintained Sales Cloud, Service Cloud, and Experience Cloud solutions, enhancing user experience and operational efficiency.
+              As a Software Full Stack Developer, I developed and optimized Salesforce applications using LWC, Apex, REST APIs, and RESTAPIS. I managed front-end development with HTML, CSS, JavaScript, and Salesforce Flows while handling back-end processes with Apex, Triggers, and pubsub. I implemented and maintained Sales Cloud, Service Cloud, and Experience Cloud solutions, enhancing user experience and operational efficiency.
               </p>
             </div>
             <div>
@@ -251,7 +251,7 @@ export function Home() {
               <p className="text-muted-foreground">Koch Business Solutions India</p>
               <p className="text-muted-foreground">March 2021 - June 2021</p>
               <p className="text-muted-foreground">
-              During my tenure as a Salesforce Developer Intern, I supported the development and optimization of Salesforce applications, working with LWC, Apex, REST APIs, and RESTAPIS. I engaged in front-end development using HTML, CSS, and JavaScript, and assisted with back-end tasks involving Apex, Salesforce Flows, and pubsub. My contributions included aiding in the implementation and maintenance of Sales Cloud, Service Cloud, and Experience Cloud solutions, with a focus on enhancing user experience and operational productivity.
+              During my tenure as a Software Developer Intern, I supported the development and optimization of Salesforce applications, working with LWC, Apex, REST APIs, and RESTAPIS. I engaged in front-end development using HTML, CSS, and JavaScript, and assisted with back-end tasks involving Apex, Salesforce Flows, and pubsub. My contributions included aiding in the implementation and maintenance of Sales Cloud, Service Cloud, and Experience Cloud solutions, with a focus on enhancing user experience and operational productivity.
               </p>
             </div>
           </div>
