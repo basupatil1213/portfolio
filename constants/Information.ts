@@ -54,7 +54,7 @@ Technologies: React.js, React Redux, TypeScript, Material UI, Node.js, Express, 
 - Developed Chef2Go, a recipe platform with login/signup, chef/recipe search, and premium subscriptions using the MERN stack.
 - Implemented secure routes, user authentication, and built a dynamic user interface for an engaging experience on Chef2Go.
         `,
-        demo_link: "https://demo.chef2go.com",
+        demo_link: "",
         display_img: "/projects_images/chef2go.png",
         github_link: "https://github.com/basupatil1213/chef-2-go"
     },

@@ -279,10 +279,11 @@ export function Home() {
               <CardContent className="h-1/4 flex-1 overflow-scroll">
                 <p>{project.content}</p>
               </CardContent>
-              <CardFooter className="flex items-center justify-between">
-                <Link target="_blank" href={project.github_link} className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded" prefetch={false}>
+              <CardFooter className="flex items-center justify-center">
+                <Link target="_blank" href={project.github_link} className="flex-1 inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded" prefetch={false}>
                   GitHub
                 </Link>
+                {project.demo_link && 
                 <Link
                   href={project.demo_link}
                   className="inline-flex h-8 items-center justify-center rounded bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 rounded"
@@ -290,6 +291,7 @@ export function Home() {
                 >
                   Demo
                 </Link>
+                }
               </CardFooter>
             </Card>
               )
