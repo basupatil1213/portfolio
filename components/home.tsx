@@ -265,7 +265,7 @@ export function Home() {
                 <Card className="h-[600px] flex flex-col justify-around gap-2 rounded" key={idx}>
               <div className="relative">
                 <Image
-                  src="/profile.jpg"
+                  src={project.display_img}//"/profile.jpg"
                   alt="Project 1"
                   width={600}
                   height={200}

@@ -27,7 +27,7 @@ Technologies: GCP, Terraform, Packer
 - Enabled secure and automated infrastructure provisioning on GCP through IaC (Terraform, Packer) with GitHub Actions.
         `,
         demo_link: "",
-        display_img: "/images/projects/cloud-native-user-management.png",
+        display_img: "projects_images/gcp.svg",
         github_link: "https://github.com/Basu-Patil/tf-gcp-infra"
     },
     {
@@ -40,7 +40,7 @@ Data Structures and Algorithms Project
 - Designed & executed test cases to validate game logic & algorithms.
         `,
         demo_link: "",
-        display_img: "/images/projects/tictactoe-connectfour.png",
+        display_img: "/projects_images/tictactoe.jpg",
         github_link: "https://github.com/ssaurabh760/TicTacToe-Connect4"
     },
     {
@@ -55,7 +55,7 @@ Technologies: React.js, React Redux, TypeScript, Material UI, Node.js, Express, 
 - Implemented secure routes, user authentication, and built a dynamic user interface for an engaging experience on Chef2Go.
         `,
         demo_link: "https://demo.chef2go.com",
-        display_img: "/images/projects/chef2go.png",
+        display_img: "/projects_images/chef2go.png",
         github_link: "https://github.com/basupatil1213/chef-2-go"
     },
     {
@@ -70,7 +70,7 @@ Technologies: Vue.js, Java, MySQL
 - Leveraged MySQL schema normalization techniques to optimize data storage and retrieval, ensuring a responsive user experience.
         `,
         demo_link: "",
-        display_img: "/images/projects/fitpulse.png",
+        display_img: "/projects_images/fitpulse.png",
         github_link: "https://github.com/basupatil1213/fitpulse"
     }
 ];
