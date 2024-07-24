@@ -41,7 +41,7 @@ Data Structures and Algorithms Project
         `,
         demo_link: "",
         display_img: "/projects_images/tictactoe.jpg",
-        github_link: "https://github.com/ssaurabh760/TicTacToe-Connect4"
+        github_link: "https://github.com/basupatil1213/TicTacToe-Connect4"
     },
     {
         title: "Chef2Go",
