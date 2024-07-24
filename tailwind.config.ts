@@ -1,6 +1,7 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   content: [
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -46,6 +47,11 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
+        golden: {
+          light: '#FFD700', // Light Golden Color
+          DEFAULT: '#DAA520', // Golden Color
+          dark: '#B8860B', // Dark Golden Color
+        },
       },
       borderRadius: {
         xl: `calc(var(--radius) + 4px)`,
@@ -65,7 +71,8 @@ export default {
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out"
+        "accordion-up": "accordion-up 0.2s ease-out",
+        'spin-slow': 'spin 3s linear infinite',
       },
     },
   },

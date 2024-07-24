@@ -21,11 +21,14 @@ To read more about using these font, please visit the Next.js documentation:
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from 'next/image';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import {SpinningBorder} from "./ui/SpinningBorder";
 
 export function Home() {
   const [theme, setTheme] = useState("light")
@@ -39,25 +42,28 @@ export function Home() {
         <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="#" className="flex items-center gap-2" prefetch={false}>
             <Avatar className="h-8 w-8">
-              <AvatarImage src="/placeholder-user.jpg" />
-              <AvatarFallback>JD</AvatarFallback>
+              <AvatarImage src="/profile.jpg" />
+              <AvatarFallback>BP</AvatarFallback>
             </Avatar>
             <span className="font-medium">Basavaraj Patil</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
+            <Link href="#about" className="text-sm font-medium hover:underline" prefetch={false}>
               About
             </Link>
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
+            <Link href="#education" className="text-sm font-medium hover:underline" prefetch={false}>
               Education
             </Link>
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
+            <Link href="#skills" className="text-sm font-medium hover:underline" prefetch={false}>
               Skills
             </Link>
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
+            <Link href="#experience" className="text-sm font-medium hover:underline" prefetch={false}>
               Experience
             </Link>
-            <Link href="#" className="text-sm font-medium hover:underline" prefetch={false}>
+            <Link href="#projects" className="text-sm font-medium hover:underline" prefetch={false}>
+              Projects
+            </Link>
+            <Link href="#contact" className="text-sm font-medium hover:underline" prefetch={false}>
               Contact
             </Link>
             <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
@@ -71,10 +77,12 @@ export function Home() {
         <section id="about" className="mb-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div className="flex items-center justify-center">
-              <Avatar className="h-32 w-32 sm:h-48 sm:w-48">
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback>JD</AvatarFallback>
+              <SpinningBorder>
+              <Avatar className="h-80 w-80">
+                <AvatarImage src="/profile.jpg" alt="Profile Image" />
+                <AvatarFallback>BP</AvatarFallback>
               </Avatar>
+              </SpinningBorder>
             </div>
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">About Me</h2>
@@ -83,7 +91,7 @@ export function Home() {
                 modern, responsive, and user-friendly websites and applications.
               </p>
               <p className="text-muted-foreground">
-              With several years of experience in the industry, I have developed a strong set of skills in Python, Java, JavaScript, and various front-end frameworks like React.js and Next.js. My technical expertise also extends to back-end development with Node.js and Express.js, as well as cloud platforms like Google Cloud Platform and Amazon Web Services. Additionally, I am proficient in using TypeScript, TailwindCSS, Terraform, and Packer. I am constantly learning and exploring new technologies to stay up-to-date with the latest trends and best practices.
+                With several years of experience in the industry, I have developed a strong set of skills in Python, Java, JavaScript, and various front-end frameworks like React.js and Next.js. My technical expertise also extends to back-end development with Node.js and Express.js, as well as cloud platforms like Google Cloud Platform and Amazon Web Services. Additionally, I am proficient in using TypeScript, TailwindCSS, Terraform, and Packer. I am constantly learning and exploring new technologies to stay up-to-date with the latest trends and best practices.
               </p>
             </div>
           </div>
@@ -194,14 +202,154 @@ export function Home() {
               <p className="text-muted-foreground">Koch Business Solutions India</p>
               <p className="text-muted-foreground">March 2021 - June 2021</p>
               <p className="text-muted-foreground">
-              Designed and developed responsive web applications, collaborating with cross-functional teams to deliver high-quality, scalable solutions. Leveraged modern technologies to enhance user experience and application performance.
+                Designed and developed responsive web applications, collaborating with cross-functional teams to deliver high-quality, scalable solutions. Leveraged modern technologies to enhance user experience and application performance.
               </p>
             </div>
           </div>
         </section>
+
+        <section id="projects" className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold">Projects</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            <Card className="h-full flex flex-col justify-around">
+              <div className="relative">
+                <Image
+                  src="/profile.jpg"
+                  alt="Project 1"
+                  width={600}
+                  height={400}
+                  className="rounded-t-lg object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>Project 1</CardTitle>
+                <CardDescription>Lorem ipsum</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 overflow-auto">
+                <p>Lorem ipsum</p>
+              </CardContent>
+              <CardFooter className="flex items-center justify-between">
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                  GitHub
+                </Link>
+                <Link
+                  href="#"
+                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  prefetch={false}
+                >
+                  Demo
+                </Link>
+              </CardFooter>
+            </Card>
+            <Card className="h-full flex flex-col justify-around">
+              <div className="relative">
+                <Image
+                  src="/profile.jpg"
+                  alt="Project 2"
+                  width={600}
+                  height={400}
+                  className="rounded-t-lg object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>Project 2</CardTitle>
+                <CardDescription>
+                  A full-stack web application built with Node.js, Express, and MongoDB.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 overflow-scroll">
+                <p>
+                  This project demonstrates my expertise in building full-stack web applications using Node.js, Express,
+                  and MongoDB. It features a robust backend API, secure authentication, and a responsive user interface.
+                </p>
+              </CardContent>
+              <CardFooter className="flex items-center justify-between">
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                  GitHub
+                </Link>
+                <Link
+                  href="#"
+                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  prefetch={false}
+                >
+                  Demo
+                </Link>
+              </CardFooter>
+            </Card>
+            <Card className="h-full flex flex-col justify-around">
+              <div className="relative">
+                <Image
+                  src="/profile.jpg"
+                  alt="Project 3"
+                  width={600}
+                  height={400}
+                  className="rounded-t-lg object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>Project 3</CardTitle>
+                <CardDescription>A mobile-first web application built with Vue.js and Ionic.</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 overflow-auto">
+                <p>
+                  This project showcases my ability to create mobile-friendly web applications using Vue.js and Ionic.
+                  It features a sleek and intuitive user interface, offline capabilities, and a range of native device
+                  features.
+                </p>
+              </CardContent>
+              <CardFooter className="flex items-center justify-between">
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                  GitHub
+                </Link>
+                <Link
+                  href="#"
+                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  prefetch={false}
+                >
+                  Demo
+                </Link>
+              </CardFooter>
+            </Card>
+            <Card className="h-full flex flex-col justify-around">
+              <div className="relative">
+                <Image
+                  src="/profile.jpg"
+                  alt="Project 3"
+                  width={600}
+                  height={400}
+                  className="rounded-t-lg object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>Project 3</CardTitle>
+                <CardDescription>A mobile-first web application built with Vue.js and Ionic.</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 overflow-auto">
+                <p>
+                  This project showcases my ability to create mobile-friendly web applications using Vue.js and Ionic.
+                  It features a sleek and intuitive user interface, offline capabilities, and a range of native device
+                  features.
+                </p>
+              </CardContent>
+              <CardFooter className="flex items-center justify-between">
+                <Link href="#" className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90" prefetch={false}>
+                  GitHub
+                </Link>
+                <Link
+                  href="#"
+                  className="inline-flex h-8 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                  prefetch={false}
+                >
+                  Demo
+                </Link>
+              </CardFooter>
+            </Card>
+          </div>
+        </section>
+
         <section id="contact" className="mb-12">
           <h2 className="mb-4 text-2xl font-bold">Contact Me</h2>
-          <form className="space-y-4">
+          <form className={`space-y-4 border-2 p-8 rounded-sm ${theme == "dark" ? 'border-white' : 'border-black'}`}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <Label htmlFor="name">Name</Label>
@@ -231,7 +379,7 @@ export function Home() {
   )
 }
 
-function CodepenIcon(props:any) {
+function CodepenIcon(props: any) {
   return (
     <svg
       {...props}
@@ -255,7 +403,7 @@ function CodepenIcon(props:any) {
 }
 
 
-function FigmaIcon(props:any) {
+function FigmaIcon(props: any) {
   return (
     <svg
       {...props}
@@ -279,7 +427,7 @@ function FigmaIcon(props:any) {
 }
 
 
-function GitGraphIcon(props:any) {
+function GitGraphIcon(props: any) {
   return (
     <svg
       {...props}
@@ -322,7 +470,7 @@ function GithubIcon(props: any) {
 
 
 
-function HashIcon(props:any) {
+function HashIcon(props: any) {
   return (
     <svg
       {...props}
@@ -345,7 +493,7 @@ function HashIcon(props:any) {
 }
 
 
-function MoonIcon(props:any) {
+function MoonIcon(props: any) {
   return (
     <svg
       {...props}
@@ -365,7 +513,7 @@ function MoonIcon(props:any) {
 }
 
 
-function NetworkIcon(props:any) {
+function NetworkIcon(props: any) {
   return (
     <svg
       {...props}
@@ -483,14 +631,14 @@ function TypeScriptIcon(props: any) {
       fill="currentColor"
       stroke="none"
     >
-      <path d="M44.1 49.5l-7.7 17.5h-5l7.7-17.5h5zm-6.2 26.7h5.3l-7.7-17.6-7.7 17.6h5.3zm27.7-8.2v-4.7h-6.7v4.7h-5.1v-14h11.8v4.7h-6.7v4.9h5.1v4.7h5.1zm30.3-4.4c-.3-.4-.7-.7-1.2-.9-.6-.3-1.3-.5-2.1-.5-1.4 0-2.6.5-3.5 1.3-1 .9-1.5 2.1-1.5 3.5v.2c0 1.4.5 2.6 1.5 3.5 1 .9 2.2 1.4 3.5 1.4 1.4 0 2.6-.5 3.5-1.4.9-.9 1.4-2.1 1.4-3.5 0-1.4-.5-2.6-1.4-3.5zm-2.3 5.2c-.8.8-1.8 1.2-2.8 1.2-1.1 0-2.1-.4-2.8-1.2-.8-.8-1.2-1.8-1.2-2.9v-.2c0-1.1.4-2.1 1.2-2.9.7-.8 1.7-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2.8.8 1.2 1.8 1.2 2.9 0 1.1-.4 2.1-1.2 2.9zM63.1 2H11.3C5.5 2 1 6.5 1 12.3v103.5c0 5.8 4.5 10.3 10.3 10.3h51.8c5.8 0 10.3-4.5 10.3-10.3V12.3C73.4 6.5 68.9 2 63.1 2zm0 15.7h-4.2c-2.5 0-4.7 1-6.4 2.8l-7.1 6.8-7.1-6.8c-1.7-1.8-4-2.8-6.4-2.8h-4.2c-3.5 0-6.4 2.8-6.4 6.4v78.8c0 3.5 2.8 6.4 6.4 6.4h4.2c2.5 0 4.7-1 6.4-2.8l7.1-6.8 7.1 6.8c1.7 1.8 4 2.8 6.4 2.8h4.2c3.5 0 6.4-2.8 6.4-6.4v-78.8c0-3.5-2.8-6.4-6.4-6.4z"/>
+      <path d="M44.1 49.5l-7.7 17.5h-5l7.7-17.5h5zm-6.2 26.7h5.3l-7.7-17.6-7.7 17.6h5.3zm27.7-8.2v-4.7h-6.7v4.7h-5.1v-14h11.8v4.7h-6.7v4.9h5.1v4.7h5.1zm30.3-4.4c-.3-.4-.7-.7-1.2-.9-.6-.3-1.3-.5-2.1-.5-1.4 0-2.6.5-3.5 1.3-1 .9-1.5 2.1-1.5 3.5v.2c0 1.4.5 2.6 1.5 3.5 1 .9 2.2 1.4 3.5 1.4 1.4 0 2.6-.5 3.5-1.4.9-.9 1.4-2.1 1.4-3.5 0-1.4-.5-2.6-1.4-3.5zm-2.3 5.2c-.8.8-1.8 1.2-2.8 1.2-1.1 0-2.1-.4-2.8-1.2-.8-.8-1.2-1.8-1.2-2.9v-.2c0-1.1.4-2.1 1.2-2.9.7-.8 1.7-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2.8.8 1.2 1.8 1.2 2.9 0 1.1-.4 2.1-1.2 2.9zM63.1 2H11.3C5.5 2 1 6.5 1 12.3v103.5c0 5.8 4.5 10.3 10.3 10.3h51.8c5.8 0 10.3-4.5 10.3-10.3V12.3C73.4 6.5 68.9 2 63.1 2zm0 15.7h-4.2c-2.5 0-4.7 1-6.4 2.8l-7.1 6.8-7.1-6.8c-1.7-1.8-4-2.8-6.4-2.8h-4.2c-3.5 0-6.4 2.8-6.4 6.4v78.8c0 3.5 2.8 6.4 6.4 6.4h4.2c2.5 0 4.7-1 6.4-2.8l7.1-6.8 7.1 6.8c1.7 1.8 4 2.8 6.4 2.8h4.2c3.5 0 6.4-2.8 6.4-6.4v-78.8c0-3.5-2.8-6.4-6.4-6.4z" />
     </svg>
   );
 }
 
 //TailwindCSS Icon
 
-function TailwindIcon(props:any) {
+function TailwindIcon(props: any) {
   return (
     <svg
       {...props}
@@ -498,7 +646,7 @@ function TailwindIcon(props:any) {
       viewBox="0 0 256 256"
       fill="currentColor"
     >
-      <path d="M204.8 51.2C169.8 16.2 120.2 0 72 0 32.2 0 0 32.2 0 72c0 9.9 2.2 19.6 5.8 28.4-4.5 8.1-7.8 17.5-7.8 27.6 0 39.8 32.2 72 72 72 6.2 0 12.3-.8 18.2-2.3 4.5 10.4 10.5 19.9 18.1 27.5 8.1 8.1 17.7 14.8 28.1 19.4 7.3 3.2 15.3 4.9 23.4 4.9 39.8 0 72-32.2 72-72 0-15.8-4.8-30.6-12.9-43.2 5.2-10.2 8.7-21.9 8.7-34.5 0-39.8-32.2-72-72-72-8.8 0-17.4 1.7-25.4 4.7-7.7-11.3-18.2-21-30.7-27.7zM72 16c27.7 0 52.3 13.6 67.1 33.5-22.5 17.3-39.8 42.4-51.3 69.5-7.2 18.1-11.2 38.3-11.2 58.6 0 5.7.4 11.3 1.1 16.8-7.5-6.8-13.7-14.6-18.7-23.3-8.8-15.2-14.4-32.3-17.8-50.5C17.6 72.7 16 64.3 16 56c0-27.7 22.5-50.2 50.2-50.2zm96.1 22.6c9.2-7.6 21.1-12.2 33.4-12.2 27.7 0 50.2 22.5 50.2 50.2 0 9.6-2.7 18.9-7.6 27.2-14.1-6.2-29.7-10.1-46.5-10.1-8.4 0-16.5.9-24.4 2.5-1.2-8.8-3.4-17.2-6.8-25.1-4.3-9.7-10-19.1-16.9-27.1 11.4-4.4 23.7-6.9 36.7-6.9 13.6 0 26.6 2.7 38.5 7.8 7.1 2.9 13.4 7.2 18.8 12.7 6.6 6.6 11.8 14.3 15.4 22.9-13.1 4.1-25.9 9.8-37.9 16.9-2.2 1.5-4.2 3.1-6.2 4.7-8.3 6.2-15.7 13.5-22.2 21.7-8.5 11.3-15.3 23.7-20.1 36.8-6.1-11.3-13.2-21.6-21.7-31.4-8.2-8.5-17.4-16.2-27.5-22.6 7.7-12.3 17.4-23.5 28.8-33.2 8.7-7.5 18.5-14.2 28.9-19.8zm-46.8 34.7c5.6 13.4 10.9 26.9 16.1 40.5 4.8 11.6 9.4 23.3 14 35.1 3.9 9.2 7.5 18.4 11.2 27.6-6.3 5.8-12.5 11.2-19.5 16.1-8.6 6.4-18.3 11.9-28.2 16.3-2.5-9.8-6.5-19.1-11.4-27.9-4.5-7.4-9.3-14.5-14.7-21.6-3.7-5.4-7.3-10.9-11.2-16.1-6.4-8.6-13.5-16.4-21.8-23.3-7.6-6.4-15.9-12.2-24.8-17.2 8.8-14.6 20.1-27.8 32.3-39.4 7.9-7.7 16.4-14.9 25.7-21.2 11.7-8.2 24.3-15.1 37.8-21.1-3.2 7.7-6.5 15.4-9.5 23.3-5.4 15.6-11.3 31-17.9 46.2z"/>
+      <path d="M204.8 51.2C169.8 16.2 120.2 0 72 0 32.2 0 0 32.2 0 72c0 9.9 2.2 19.6 5.8 28.4-4.5 8.1-7.8 17.5-7.8 27.6 0 39.8 32.2 72 72 72 6.2 0 12.3-.8 18.2-2.3 4.5 10.4 10.5 19.9 18.1 27.5 8.1 8.1 17.7 14.8 28.1 19.4 7.3 3.2 15.3 4.9 23.4 4.9 39.8 0 72-32.2 72-72 0-15.8-4.8-30.6-12.9-43.2 5.2-10.2 8.7-21.9 8.7-34.5 0-39.8-32.2-72-72-72-8.8 0-17.4 1.7-25.4 4.7-7.7-11.3-18.2-21-30.7-27.7zM72 16c27.7 0 52.3 13.6 67.1 33.5-22.5 17.3-39.8 42.4-51.3 69.5-7.2 18.1-11.2 38.3-11.2 58.6 0 5.7.4 11.3 1.1 16.8-7.5-6.8-13.7-14.6-18.7-23.3-8.8-15.2-14.4-32.3-17.8-50.5C17.6 72.7 16 64.3 16 56c0-27.7 22.5-50.2 50.2-50.2zm96.1 22.6c9.2-7.6 21.1-12.2 33.4-12.2 27.7 0 50.2 22.5 50.2 50.2 0 9.6-2.7 18.9-7.6 27.2-14.1-6.2-29.7-10.1-46.5-10.1-8.4 0-16.5.9-24.4 2.5-1.2-8.8-3.4-17.2-6.8-25.1-4.3-9.7-10-19.1-16.9-27.1 11.4-4.4 23.7-6.9 36.7-6.9 13.6 0 26.6 2.7 38.5 7.8 7.1 2.9 13.4 7.2 18.8 12.7 6.6 6.6 11.8 14.3 15.4 22.9-13.1 4.1-25.9 9.8-37.9 16.9-2.2 1.5-4.2 3.1-6.2 4.7-8.3 6.2-15.7 13.5-22.2 21.7-8.5 11.3-15.3 23.7-20.1 36.8-6.1-11.3-13.2-21.6-21.7-31.4-8.2-8.5-17.4-16.2-27.5-22.6 7.7-12.3 17.4-23.5 28.8-33.2 8.7-7.5 18.5-14.2 28.9-19.8zm-46.8 34.7c5.6 13.4 10.9 26.9 16.1 40.5 4.8 11.6 9.4 23.3 14 35.1 3.9 9.2 7.5 18.4 11.2 27.6-6.3 5.8-12.5 11.2-19.5 16.1-8.6 6.4-18.3 11.9-28.2 16.3-2.5-9.8-6.5-19.1-11.4-27.9-4.5-7.4-9.3-14.5-14.7-21.6-3.7-5.4-7.3-10.9-11.2-16.1-6.4-8.6-13.5-16.4-21.8-23.3-7.6-6.4-15.9-12.2-24.8-17.2 8.8-14.6 20.1-27.8 32.3-39.4 7.9-7.7 16.4-14.9 25.7-21.2 11.7-8.2 24.3-15.1 37.8-21.1-3.2 7.7-6.5 15.4-9.5 23.3-5.4 15.6-11.3 31-17.9 46.2z" />
     </svg>
   );
 }
@@ -506,7 +654,7 @@ function TailwindIcon(props:any) {
 
 // Java Icon
 
-function JavaIcon(props:any) {
+function JavaIcon(props: any) {
   return (
     <svg
       {...props}
@@ -514,14 +662,14 @@ function JavaIcon(props:any) {
       viewBox="0 0 256 256"
       fill="currentColor"
     >
-      <path d="M128 32c-52.93 0-96 43.07-96 96s43.07 96 96 96 96-43.07 96-96-43.07-96-96-96zm0 160c-10.97 0-20-9.03-20-20s9.03-20 20-20 20 9.03 20 20-9.03 20-20 20zm16.56-20.62c0 16.92-13.73 30.56-30.56 30.56s-30.56-13.64-30.56-30.56c0-14.18 9.6-26.41 22.34-30.41v-15.92c-12.75-4.06-22.32-16.15-22.32-30.65 0-17.72 14.37-32 32-32 10.84 0 20.66 5.49 27.18 13.59 3.28 4.03 5.34 9.09 5.34 14.63 0 12.77-10.49 23.09-23.29 23.09-8.48 0-15.36-5.45-18.4-13.14 2.58 2.04 5.46 3.15 8.38 3.15 6.85 0 12.42-5.58 12.42-12.42 0-2.79-1.06-5.35-2.74-7.27 3.16 1.46 6.85 2.32 10.48 2.32 6.57 0 11.88-5.31 11.88-11.88 0-4.28-2.08-8.21-5.34-10.56-4.99-2.98-10.66-4.71-16.56-4.71-13.18 0-23.79 10.37-23.79 23.79 0 11.51 8.87 20.97 20.03 22.78 2.43.38 4.79 1.12 6.85 2.26 3.27 2.25 5.47 5.68 5.47 9.74zM112 104c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16z"/>
+      <path d="M128 32c-52.93 0-96 43.07-96 96s43.07 96 96 96 96-43.07 96-96-43.07-96-96-96zm0 160c-10.97 0-20-9.03-20-20s9.03-20 20-20 20 9.03 20 20-9.03 20-20 20zm16.56-20.62c0 16.92-13.73 30.56-30.56 30.56s-30.56-13.64-30.56-30.56c0-14.18 9.6-26.41 22.34-30.41v-15.92c-12.75-4.06-22.32-16.15-22.32-30.65 0-17.72 14.37-32 32-32 10.84 0 20.66 5.49 27.18 13.59 3.28 4.03 5.34 9.09 5.34 14.63 0 12.77-10.49 23.09-23.29 23.09-8.48 0-15.36-5.45-18.4-13.14 2.58 2.04 5.46 3.15 8.38 3.15 6.85 0 12.42-5.58 12.42-12.42 0-2.79-1.06-5.35-2.74-7.27 3.16 1.46 6.85 2.32 10.48 2.32 6.57 0 11.88-5.31 11.88-11.88 0-4.28-2.08-8.21-5.34-10.56-4.99-2.98-10.66-4.71-16.56-4.71-13.18 0-23.79 10.37-23.79 23.79 0 11.51 8.87 20.97 20.03 22.78 2.43.38 4.79 1.12 6.85 2.26 3.27 2.25 5.47 5.68 5.47 9.74zM112 104c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16z" />
     </svg>
   );
 }
 
 //Python Icon
 
-function PythonIcon(props:any) {
+function PythonIcon(props: any) {
   return (
     <svg
       {...props}
@@ -529,14 +677,14 @@ function PythonIcon(props:any) {
       viewBox="0 0 64 64"
       fill="currentColor"
     >
-      <path d="M45.6 10.4c-4.8-4.8-11.2-7.5-18.4-7.5-9.3 0-17 4.5-22 11.5-2.7 3.2-4.6 7-5.6 11.2-.4 1.7-.6 3.5-.6 5.3v5.4c0 1.8.2 3.6.6 5.3 1 4.2 2.9 8 5.6 11.2 5 7 12.7 11.5 22 11.5 7.2 0 13.6-2.7 18.4-7.5 4.8-4.8 7.5-11.2 7.5-18.4 0-7.2-2.7-13.6-7.5-18.4zM40 28H24v8h10.5c-1.5 2.7-4.2 4.5-7.3 4.5-4.8 0-8.8-3.9-8.8-8.8s3.9-8.8 8.8-8.8c3.1 0 5.8 1.8 7.3 4.5H24v-8h16v8zM32 36c0-2.7 2.2-4.8 4.8-4.8 2.7 0 4.8 2.2 4.8 4.8s-2.2 4.8-4.8 4.8c-2.7 0-4.8-2.2-4.8-4.8zM32 8c-2.7 0-4.8 2.2-4.8 4.8s2.2 4.8 4.8 4.8c2.7 0 4.8-2.2 4.8-4.8s-2.2-4.8-4.8-4.8zM16 16H8c0-6.4 5.2-11.5 11.5-11.5 4.1 0 7.7 1.7 10.3 4.5h-9c-4.8 0-8.8 3.9-8.8 8.8s3.9 8.8 8.8 8.8h10v-8h-6.2c-1.6-2.7-4.2-4.5-7.3-4.5-2.7 0-4.8-2.2-4.8-4.8zM48 48c-2.7 0-4.8-2.2-4.8-4.8s2.2-4.8 4.8-4.8c2.7 0 4.8 2.2 4.8 4.8s-2.2 4.8-4.8 4.8z"/>
+      <path d="M45.6 10.4c-4.8-4.8-11.2-7.5-18.4-7.5-9.3 0-17 4.5-22 11.5-2.7 3.2-4.6 7-5.6 11.2-.4 1.7-.6 3.5-.6 5.3v5.4c0 1.8.2 3.6.6 5.3 1 4.2 2.9 8 5.6 11.2 5 7 12.7 11.5 22 11.5 7.2 0 13.6-2.7 18.4-7.5 4.8-4.8 7.5-11.2 7.5-18.4 0-7.2-2.7-13.6-7.5-18.4zM40 28H24v8h10.5c-1.5 2.7-4.2 4.5-7.3 4.5-4.8 0-8.8-3.9-8.8-8.8s3.9-8.8 8.8-8.8c3.1 0 5.8 1.8 7.3 4.5H24v-8h16v8zM32 36c0-2.7 2.2-4.8 4.8-4.8 2.7 0 4.8 2.2 4.8 4.8s-2.2 4.8-4.8 4.8c-2.7 0-4.8-2.2-4.8-4.8zM32 8c-2.7 0-4.8 2.2-4.8 4.8s2.2 4.8 4.8 4.8c2.7 0 4.8-2.2 4.8-4.8s-2.2-4.8-4.8-4.8zM16 16H8c0-6.4 5.2-11.5 11.5-11.5 4.1 0 7.7 1.7 10.3 4.5h-9c-4.8 0-8.8 3.9-8.8 8.8s3.9 8.8 8.8 8.8h10v-8h-6.2c-1.6-2.7-4.2-4.5-7.3-4.5-2.7 0-4.8-2.2-4.8-4.8zM48 48c-2.7 0-4.8-2.2-4.8-4.8s2.2-4.8 4.8-4.8c2.7 0 4.8 2.2 4.8 4.8s-2.2 4.8-4.8 4.8z" />
     </svg>
   );
 }
 
 
 
-function SunIcon(props:any) {
+function SunIcon(props: any) {
   return (
     <svg
       {...props}
@@ -564,7 +712,7 @@ function SunIcon(props:any) {
 }
 
 
-function ViewIcon(props:any) {
+function ViewIcon(props: any) {
   return (
     <svg
       {...props}
@@ -586,7 +734,7 @@ function ViewIcon(props:any) {
   )
 }
 
-function NextJSIcon(props:any) {
+function NextJSIcon(props: any) {
   return (
     <svg
       {...props}
@@ -605,7 +753,7 @@ function NextJSIcon(props:any) {
 }
 
 
-function XIcon(props:any) {
+function XIcon(props: any) {
   return (
     <svg
       {...props}

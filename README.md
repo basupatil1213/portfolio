@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Personal Portfolio
 
-## Getting Started
+Welcome to my personal portfolio! This project showcases my skills, experience, and projects that I have worked on. It serves as a comprehensive overview of my professional journey and accomplishments.
 
-First, run the development server:
+## Table of Contents
+- [About Me](#about-me)
+- [Skills](#skills)
+- [Projects](#projects)
+- [Experience](#experience)
+- [Education](#education)
+- [Contact](#contact)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About Me
+I am a passionate and dedicated professional with a strong background in software development. I have a keen interest in web development and continuously strive to improve my skills and knowledge.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Skills
+- JavaScript
+- TypeScript
+- React
+- Node.js
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Projects
+### Portfolio Website
+A personal portfolio website built using React and TypeScript to showcase my projects and skills.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### E-commerce Platform
+An e-commerce platform developed with Node.js and Express, featuring user authentication, product management, and a shopping cart.
 
-## Learn More
+### Blogging Application
+A full-stack blogging application created with React, Node.js, and MongoDB, allowing users to create, edit, and delete blog posts.
 
-To learn more about Next.js, take a look at the following resources:
+## Experience
+### Frontend Developer at Tech Solutions
+- Duration: January 2020 - Present
+- Developed and maintained web applications using React and TypeScript
+- Collaborated with designers and backend developers to create seamless user experiences
+- Implemented responsive design and ensured cross-browser compatibility
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Software Engineer Intern at Web Innovators
+- Duration: June 2019 - December 2019
+- Assisted in the development of web applications using JavaScript and Node.js
+- Participated in code reviews and contributed to improving code quality
+- Gained experience in Agile development methodologies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Education
+- Bachelor of Science in Computer Science
+- University of Technology
+- Graduation Year: 2019
 
-## Deploy on Vercel
+## Contact
+Feel free to reach out to me via email at myemail@example.com for any inquiries or opportunities.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Thank you for visiting my personal portfolio!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
