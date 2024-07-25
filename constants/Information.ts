@@ -17,10 +17,6 @@ export const projects: ProjectType[] = [
         description: "A cloud-native user management system designed and deployed on GCP.",
         content: `
 DevOps Project
-Mar 2021 – June 2022
-Bengaluru, KA, India
-Jan 2024 – May 2024
-
 Technologies: GCP, Terraform, Packer
 
 - Designed & deployed cloud-native user management on GCP (registration, auth, profiles, email verification).
@@ -48,7 +44,6 @@ Data Structures and Algorithms Project
         description: "A full-stack web platform for discovering and ordering from local chefs.",
         content: `
 Full Stack Web Development Project
-Jan 2024 – May 2024
 Technologies: React.js, React Redux, TypeScript, Material UI, Node.js, Express, MongoDB
 
 - Developed Chef2Go, a recipe platform with login/signup, chef/recipe search, and premium subscriptions using the MERN stack.
@@ -63,7 +58,6 @@ Technologies: React.js, React Redux, TypeScript, Material UI, Node.js, Express, 
         description: "A full-stack web application for fitness challenges optimized for user engagement.",
         content: `
 Full Stack Web Development Project
-Sep 2023 – Dec 2023
 Technologies: Vue.js, Java, MySQL
 
 - Engineered a data-driven Fitness Challenge App using Vue.js and Java to optimize user engagement.
